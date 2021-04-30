@@ -3,3 +3,61 @@
 .task-done {
   text-decoration: line-through;
 }
+
+header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+.menu {
+  color: #5c48d3;
+  margin: 0 30px;
+}
+
+.limit-header {
+  border: solid rgb(223, 223, 223) 1px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tasks {
+  margin: 60px 0;
+}
+
+.task {
+  display: flex;
+  margin: 20px 0;
+}
+
+.task p {
+  margin: 0 15px;
+}
+
+.trash {
+  color: #5c48d3;
+}
+
+.newtask {
+  width: 250px;
+  height: 30px;
+  background-color: #f2f7fd;
+  border-radius: 5px;
+  border: solid 1px #5c48d3;
+  padding-left: 15px;
+  margin-right: 30px;
+}
+
+.submit {
+  height: 35px;
+  background-color: #5c48d3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 90px;
+}

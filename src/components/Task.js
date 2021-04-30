@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Task = ({ title, index, tasks, setupTasks }) => {
   const [isDone, setupIsDone] = useState(false);
   return (
-    <div>
+    <div className="task">
       <input
         type="checkbox"
         onChange={(event) => {
@@ -15,8 +15,9 @@ const Task = ({ title, index, tasks, setupTasks }) => {
           }
         }}
       />
-      <div className={isDone && "task-done"}>{title}</div>
+      <p className={isDone && "task-done"}>{title}</p>
       <FontAwesomeIcon
+        className="trash"
         icon="trash"
         onClick={() => {
           const newTasks = [...tasks];

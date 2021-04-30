@@ -2,8 +2,9 @@ import "./App.css";
 import { useState } from "react";
 import Task from "./components/Task";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-library.add(faTrash);
+import { faTrash, faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faTrash, faBars);
 
 function App() {
   const [newTask, setupNewTask] = useState("");
@@ -11,36 +12,44 @@ function App() {
   return (
     <div>
       <header>
+        <FontAwesomeIcon className="menu" icon="bars" />
         <h1>Todo List</h1>
       </header>
-      {tasks.map((elem, index) => {
-        return (
-          <Task
-            key={index}
-            title={elem}
-            index={index}
-            tasks={tasks}
-            setupTasks={setupTasks}
-          />
-        );
-      })}
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-          const newTasks = [...tasks];
-          newTasks.push(newTask);
-          setupTasks(newTasks);
-        }}
-      >
-        <input
-          type="text"
-          placeholder="new task"
-          onChange={(event) => {
-            setupNewTask(event.target.value);
+      <div className="limit-header"></div>
+      <main>
+        <div className="tasks">
+          {tasks.map((elem, index) => {
+            return (
+              <Task
+                key={index}
+                title={elem}
+                index={index}
+                tasks={tasks}
+                setupTasks={setupTasks}
+              />
+            );
+          })}
+        </div>
+
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            const newTasks = [...tasks];
+            newTasks.push(newTask);
+            setupTasks(newTasks);
           }}
-        />
-        <input type="submit" />
-      </form>
+        >
+          <input
+            className="newtask"
+            type="text"
+            placeholder="new task"
+            onChange={(event) => {
+              setupNewTask(event.target.value);
+            }}
+          />
+          <input type="submit" value="Add task" className="submit" />
+        </form>
+      </main>
     </div>
   );
 }
