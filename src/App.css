@@ -1,1 +1,5 @@
 /* Other rules */
+
+.task-done {
+  text-decoration: line-through;
+}
