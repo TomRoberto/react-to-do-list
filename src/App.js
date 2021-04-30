@@ -22,7 +22,8 @@ function App() {
             return (
               <Task
                 key={index}
-                title={elem}
+                title={elem.title}
+                isDone={elem.isDone}
                 index={index}
                 tasks={tasks}
                 setupTasks={setupTasks}
@@ -35,7 +36,7 @@ function App() {
           onSubmit={(event) => {
             event.preventDefault();
             const newTasks = [...tasks];
-            newTasks.push(newTask);
+            newTasks.push({ title: newTask, isDone: false });
             setupTasks(newTasks);
           }}
         >
