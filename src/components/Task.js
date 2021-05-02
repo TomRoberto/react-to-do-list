@@ -3,21 +3,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Task = ({ title, isDone, index, tasks, setupTasks }) => {
   const handleChecked = () => {
     const copyTab = [...tasks];
-    const newTab = [];
+
+    if (copyTab[index].isDone === true) {
+      copyTab[index].isDone = false;
+    } else {
+      copyTab[index].isDone = true;
+    }
+
+    const orderedTab = [];
+
     for (let i = 0; i < copyTab.length; i++) {
-      if (i === index) {
-        if (copyTab[i].isDone === true) {
-          copyTab[i].isDone = false;
-          newTab.push(copyTab[i]);
-        } else {
-          copyTab[i].isDone = true;
-          newTab.push(copyTab[i]);
-        }
-      } else {
-        newTab.push(copyTab[i]);
+      if (copyTab[i].isDone === false) {
+        orderedTab.push(copyTab[i]);
       }
     }
-    setupTasks(newTab);
+
+    for (let i = 0; i < copyTab.length; i++) {
+      if (copyTab[i].isDone === true) {
+        orderedTab.push(copyTab[i]);
+      }
+    }
+
+    setupTasks(orderedTab);
   };
 
   const handleDeletion = () => {

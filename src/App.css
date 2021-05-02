@@ -9,6 +9,29 @@ header {
   display: flex;
   align-items: center;
   font-size: 30px;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+}
+
+.dark {
+  margin-right: 20px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.light {
+  margin-right: 20px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  border: none;
 }
 
 .menu {
@@ -43,6 +66,16 @@ main {
   color: #5c48d3;
 }
 
+.search {
+  width: 250px;
+  height: 30px;
+  background-color: #f2f7fd;
+  border-radius: 5px;
+  border: solid 1px #5c48d3;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+
 .newtask {
   width: 250px;
   height: 30px;
@@ -60,4 +93,20 @@ main {
   border: none;
   border-radius: 5px;
   width: 90px;
+}
+
+/* DARK MODE */
+
+.hidden {
+  display: none;
+}
+
+.header-dark {
+  background-color: black;
+  color: white;
+}
+
+.main-dark {
+  background-color: black;
+  color: white;
 }
